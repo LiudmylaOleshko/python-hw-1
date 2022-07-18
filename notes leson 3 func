@@ -1,0 +1,45 @@
+"""
+def hello_func():
+  print("Hello from a function")
+
+
+
+def my_func():
+    print("в функции")
+    print("в функции")
+
+print("це не в функции")
+
+my_func()        # візіваем функцию и віведется на печать  "це не в функции "в функции" "в функции"
+"""
+
+# parameters vs arguments
+# *args
+# number of args
+# keyword args
+# default parameter val
+
+# return values
+
+'''
+def my_func(who):  # параментр
+    print("Hello", who)
+
+
+print("це не в функции")
+my_func('everyone')  # аргумент(значення). Передавати аргументів стільки з скільки параметтрів
+'''
+
+
+def my_func(who, count):
+    for _ in range(count):  # 0.1.2.3
+        print("Hello", who)
+
+
+print("це не в функции")
+my_func('everyone', 5)  # 5 скількі разів вивести
+
+my_func('Alex')  # можна не указівать кол - по умолчанию - 1 раз
+# функцию можно візівать нескольок раз с разніми данніми
+my_func('Itination', 3)
+# повертати
