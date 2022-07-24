@@ -12,17 +12,50 @@
 # 2. `python calculate.py 2 - 200` -> -198
 # 3.  `python calculate.py 2 * 8` -> 16
 # 4.  `python calculate.py 200 / 2` -> 100
+from ast import operator
+import math
 import sys
-a = float(input("enter first number: "))
-b = float(input("enter second number: "))
-operation = input("watch shell i do? (+,-,/,*): ")
-result = 0
-if operation == "+":
-    result = a + b
-elif operation == "-":
-    result = a - b
-elif operation == "*":
-    result = a * b
-elif operation == "/":
-    result = a / b
-print(f"Total: {result}")
+
+left_operand = sys.argv[1]
+right_operand = sys.argv[3]
+operation = sys.argv[2]
+allowed_operations = ["+", "-", "*", "/", "%"]
+
+print("Number of arguments:", len(sys.argv), "arguments")
+print("Argument List:", str(sys.argv))
+
+if len(sys.argv) != 4:
+    print("Arg len should be 4")
+    sys.exit()
+
+if operation == "/" and right_operand == 0:
+    print("Division by zero is not allowed")
+    sys.exit()
+
+if operation not in allowed_operations:
+    print("operation is not allowed")
+    sys.exit()
+
+try:
+    left_operand is not int(left_operand)
+    right_operand is not int(right_operand)
+except ValueError:
+    print("Left and right operand must be int")
+    sys.exit()
+
+match operation:
+    case "+":
+        print(int(left_operand) + int(right_operand))
+    case "-":
+        print(int(left_operand) - int(right_operand))
+    case "*":
+        print(int(left_operand) * int(right_operand))
+    case "/":
+        print(int(left_operand) / int(right_operand))
+    case "%":
+        print(int(left_operand) % int(right_operand))
+        
+
+#print((f"{left_operand} {operation} {right_operand}"), "=", eval(f"{left_operand}{operation}{right_operand}"))
+
+
